@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping("/v1/accounts/{accountId}/transactions")
 @RequiredArgsConstructor
 public class TransactionController {
+    // REST controller for transaction operations on an account.
 
     private final TransactionService txs;
 

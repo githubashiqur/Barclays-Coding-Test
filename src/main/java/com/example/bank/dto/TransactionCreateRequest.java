@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
+// DTO to create a transaction against an account.
+
 public record TransactionCreateRequest(
         @NotNull TransactionType type,
         @NotNull @DecimalMin("0.01") BigDecimal amount,

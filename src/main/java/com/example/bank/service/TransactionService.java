@@ -17,6 +17,14 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class TransactionService {
+    /**
+     * Service responsible for creating and retrieving transactions for accounts.
+     *
+     * Responsibilities:
+     * - Validate and apply deposits and withdrawals
+     * - Ensure sufficient funds for withdrawals
+     * - Return transaction history and single transaction details
+     */
 
     private final TransactionRepository txs;
     private final AccountRepository accounts;

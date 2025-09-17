@@ -11,6 +11,9 @@ import java.time.OffsetDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // Centralized exception handler that maps internal exceptions to HTTP responses.
+    
+
     private ResponseEntity<ErrorResponse> build(HttpStatus status, String error, String message) {
         return ResponseEntity.status(status).body(
                 new ErrorResponse(error, message, status.value(), OffsetDateTime.now())

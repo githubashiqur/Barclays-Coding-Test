@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
+    // Authentication service which validates credentials and issues JWT tokens.
 
     private final AuthenticationManager authManager;
     private final JwtUtil jwt;

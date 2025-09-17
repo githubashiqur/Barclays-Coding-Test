@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("/v1/accounts")
 @RequiredArgsConstructor
 public class AccountController {
+    // REST controller for bank account operations.
 
     private final AccountService accounts;
 

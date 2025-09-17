@@ -16,6 +16,14 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AccountService {
+    /**
+     * Business service for bank account operations.
+     *
+     * Responsibilities:
+     * - Create accounts for authenticated users
+     * - List accounts belonging to the authenticated user
+     * - Read/update/delete accounts with permission checks
+     */
 
     private final AccountRepository accounts;
     private final UserRepository users;
