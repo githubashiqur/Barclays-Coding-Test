@@ -25,7 +25,6 @@ public class JwtUtil {
             @Value("${eaglebank.jwt.issuer:eaglebank}") String issuer,
             @Value("${eaglebank.jwt.expirySeconds:86400}") long expirySeconds
     ) {
-        // Accept either base64-encoded or raw text secrets
         SecretKey k;
         try {
             byte[] bytes = Decoders.BASE64.decode(secret);

@@ -39,10 +39,11 @@ public class TransactionService {
                 .account(acc)
                 .amount(req.amount().setScale(2, RoundingMode.HALF_UP))
                 .type(req.type())
+                .balance(acc.getBalance().setScale(2, RoundingMode.HALF_UP))
                 .timestamp(OffsetDateTime.now())
                 .memo(req.memo())
                 .build();
-        accounts.save(acc); // persist new balance
+        accounts.save(acc); 
         txs.save(tx);
         return toResponse(tx);
     }
@@ -71,7 +72,7 @@ public class TransactionService {
 
     private TransactionResponse toResponse(Transaction t) {
         return new TransactionResponse(
-                t.getId(), t.getAccount().getId(), t.getType(), t.getAmount(), t.getTimestamp(), t.getMemo()
+                t.getId(), t.getAccount().getId(), t.getType(), t.getBalance(), t.getAmount(), t.getTimestamp(), t.getMemo()
         );
     }
 }

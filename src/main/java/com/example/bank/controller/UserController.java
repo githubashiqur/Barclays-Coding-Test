@@ -17,20 +17,17 @@ public class UserController {
     private final UserService users;
     private final AccountService accounts;
 
-    // Create user (public)
     @PostMapping
     public ResponseEntity<UserResponse> create(@Valid @RequestBody UserCreateRequest req) {
         UserResponse resp = users.create(req);
         return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }
 
-    // Fetch self
     @GetMapping("/{userId}")
     public ResponseEntity<UserResponse> get(@PathVariable Long userId, Authentication auth) {
         return ResponseEntity.ok(users.get(userId, auth));
     }
 
-    // Update self (PATCH)
     @PatchMapping("/{userId}")
     public ResponseEntity<UserResponse> update(@PathVariable Long userId,
                                                @Valid @RequestBody UserUpdateRequest req,
@@ -38,7 +35,6 @@ public class UserController {
         return ResponseEntity.ok(users.update(userId, req, auth));
     }
 
-    // Delete self only if no accounts
     @DeleteMapping("/{userId}")
     public ResponseEntity<Void> delete(@PathVariable Long userId, Authentication auth) {
         boolean hasAccounts = accounts.userHasAccounts(userId);

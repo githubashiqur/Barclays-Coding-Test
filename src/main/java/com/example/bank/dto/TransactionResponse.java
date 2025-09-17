@@ -8,6 +8,7 @@ public record TransactionResponse(
         Long id,
         Long accountId,
         TransactionType type,
+        BigDecimal balance,
         BigDecimal amount,
         OffsetDateTime timestamp,
         String memo

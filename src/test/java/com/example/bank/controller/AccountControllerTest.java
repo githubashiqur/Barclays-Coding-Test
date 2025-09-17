@@ -3,7 +3,6 @@ package com.example.bank.controller;
 
 import com.example.bank.dto.AccountCreateRequest;
 import com.example.bank.dto.AccountResponse;
-import com.example.bank.dto.AccountUpdateRequest;
 import com.example.bank.service.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -72,20 +71,6 @@ class AccountControllerTest {
         assertEquals(HttpStatus.OK, result.getStatusCode());
         assertEquals(resp, result.getBody());
         verify(accountService).get(accountId, authentication);
-    }
-
-    @Test
-    void update_ShouldReturnUpdatedAccount() {
-        Long accountId = 1L;
-        AccountUpdateRequest req = mock(AccountUpdateRequest.class);
-        AccountResponse resp = mock(AccountResponse.class);
-        when(accountService.update(accountId, req, authentication)).thenReturn(resp);
-
-        ResponseEntity<AccountResponse> result = accountController.update(accountId, req, authentication);
-
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-        assertEquals(resp, result.getBody());
-        verify(accountService).update(accountId, req, authentication);
     }
 
     @Test

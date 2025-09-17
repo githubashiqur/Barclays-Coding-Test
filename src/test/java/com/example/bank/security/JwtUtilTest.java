@@ -10,8 +10,8 @@ import io.jsonwebtoken.io.Encoders;
 class JwtUtilTest {
 
     private static String strongBase64Secret() {
-        SecretKey key = Jwts.SIG.HS256.key().build();       // >= 256 bits
-        return Encoders.BASE64.encode(key.getEncoded());    // pass as Base64 to constructor
+        SecretKey key = Jwts.SIG.HS256.key().build();       
+        return Encoders.BASE64.encode(key.getEncoded());
     }
 
     @Test
@@ -28,7 +28,7 @@ class JwtUtilTest {
 
     @Test
     void isValid_shouldReturnFalse_forExpiredToken() {
-        JwtUtil jwtUtil = new JwtUtil(strongBase64Secret(), "test-issuer", -1); // puts exp in the past
+        JwtUtil jwtUtil = new JwtUtil(strongBase64Secret(), "test-issuer", -1); 
 
         String token = jwtUtil.generateToken("user");
         assertFalse(jwtUtil.isValid(token), "Token with past expiration should be invalid");

@@ -18,10 +18,13 @@ public class Transaction {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable=false, length=12)
-    private TransactionType type; // DEPOSIT or WITHDRAWAL
+    private TransactionType type; 
 
     @Column(nullable=false, precision=19, scale=2)
     private BigDecimal amount;
+
+    @Column(nullable=false, precision=19, scale=2)
+    private BigDecimal balance; 
 
     @Column(nullable=false)
     private OffsetDateTime timestamp;
