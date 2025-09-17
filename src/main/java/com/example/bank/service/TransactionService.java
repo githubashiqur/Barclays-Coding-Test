@@ -38,6 +38,7 @@ public class TransactionService {
         Transaction tx = Transaction.builder()
                 .account(acc)
                 .amount(req.amount().setScale(2, RoundingMode.HALF_UP))
+                .type(req.type())
                 .timestamp(OffsetDateTime.now())
                 .memo(req.memo())
                 .build();
