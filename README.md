@@ -64,11 +64,14 @@ See test reports under `target/surefire-reports` when tests run.
 To verify the `POST /v1/users` operation documentation:
 1. Start the app
 2. Open `http://localhost:8080/swagger-ui/index.html` 
-3. Modify the username, password and email to your preference and click on execute
+3. Modify the username, password and email to your preference in the request body
+   of POST /vi/users under the user-controller section and click on execute
 4. A correct request should return a 201 response
-
-Similarly you can try out the other endpoints, as per the instruction sheet.
-
+5. Use the username and password you created and enter it into the request of the v1/auth/login endpoint
+   under the auth-controller section
+6. A correct request should return a 200 response with a bearer token
+7. Enter the bearer token in the 'Authorize' section on the top right side of the swagger page
+8. Once logged in succesfully, the other endpoints can be used as expected
 
 ## Project layout
 - `openapi.yaml` — the OpenAPI 3 spec in the repo root
